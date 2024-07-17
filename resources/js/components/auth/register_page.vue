@@ -1,0 +1,139 @@
+<template>
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <div class="auth-wrapper auth-cover">
+                    <div class="auth-inner row m-0">
+                        <!-- Left Text-->
+                        <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
+                            <div class="w-100 d-lg-flex align-items-center justify-content-center px-5">
+                                <img class="img-fluid" src="/images/register-v2.svg" alt="Login V2"/>
+                            </div>
+                        </div>
+                        <!-- /Left Text-->
+                        <!-- Login-->
+                        <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
+                            <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
+                                <h3 class="card-title fw-bold mb-1">Adventure starts here 🚀</h3>
+                                <p class="card-text mb-2">Make your feedback management easy and fun!</p>
+                                <div class="auth-login-form mt-2">
+                                    <div class="form-floating mb-1">
+                                        <input type="text" v-model="name" class="form-control" id="floatingInput"
+                                               placeholder="Enter name">
+                                        <label for="floatingInput">Name</label>
+                                    </div>
+                                    <div class="form-floating mb-1">
+                                        <input type="text" v-model="email" class="form-control" id="floatingInput"
+                                               placeholder="abc@company.com">
+                                        <label for="floatingInput">Email</label>
+                                    </div>
+
+                                    <div class="form-floating mb-1 input-group input-group-merge form-password-toggle">
+                                        <input v-bind:type="[showPassword ? 'text' : 'password']" type="password"
+                                               v-model="password" class="form-control" id="floatingPassword"
+                                               placeholder="Password">
+                                        <span class="input-group-text cursor-pointer"
+                                              @click="showPassword = !showPassword">
+                                                <svg v-if="!showPassword" xmlns="http://www.w3.org/2000/svg"
+                                                     height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                                                    d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"/></svg>
+                                            <svg v-else xmlns="http://www.w3.org/2000/svg" height="1em"
+                                                 viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                                                d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z"/></svg>
+                                            </span>
+                                        <label for="floatingPassword">Password</label>
+                                    </div>
+                                    <div class="form-floating mb-1 input-group input-group-merge form-password-toggle">
+                                        <input v-bind:type="[showPassword ? 'text' : 'password']" type="password"
+                                               v-model="password2" class="form-control" id="floatingPassword"
+                                               placeholder="Password">
+                                        <span class="input-group-text cursor-pointer"
+                                              @click="showPassword = !showPassword">
+                                                <svg v-if="!showPassword" xmlns="http://www.w3.org/2000/svg"
+                                                     height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                                                    d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"/></svg>
+                                            <svg v-else xmlns="http://www.w3.org/2000/svg" height="1em"
+                                                 viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                                                d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z"/></svg>
+                                            </span>
+                                        <label for="floatingPassword">Password</label>
+                                    </div>
+                                    <div v-if="success != ''" style="margin-top:5px;margin-bottom:5px;">
+                                        <p class="alert alert-danger"
+                                           style="padding-left:10px;padding-right:10px;padding-top:5px;padding-bottom:5px">
+                                            {{ success }}</p>
+                                    </div>
+                                    <button type="button"
+                                            class="btn btn-primary w-100 waves-effect waves-float waves-light"
+                                            @click="register()">Register
+                                    </button>
+                                    <p v-if="errors.length">
+                                        <b>Please correct the following error(s):</b>
+                                        <ul>
+                                            <li v-for="error in errors" style="color:red;">{{ error }}</li>
+                                        </ul>
+                                    </p>
+                                </div>
+                                <p class="text-center mt-2"><span>Already have an account? </span>
+                                    <router-link to="/login"><span>Sign in instead</span></router-link>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /Login-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            name: '',
+            email: '',
+            password: '',
+            password2: '',
+            showPassword: '',
+            success: '',
+            errors: [],
+        };
+    },
+    methods: {
+        register() {
+            this.errors = [];
+            !this.name ? this.errors.push('Name is required.') : null;
+            !this.email ? this.errors.push('Email is required.') : null;
+            !this.password ? this.errors.push('Password is required.') : null;
+            !this.password2 ? this.errors.push('Password is confirmation required.') : null;
+            this.password !== this.password2 ? this.errors.push('Both passwords do not match.') : null;
+
+            if (this.errors.length > 0) {
+                return;
+            }
+            axios.post('./register_user', {
+                name: this.name,
+                email: this.email,
+                password: this.password,
+                password2: this.password2
+            })
+                .then(data => {
+                    if (data.data.data !== 'success') {
+                        this.success = data.data.message;
+                        this.name = this.email = this.password = this.password2 = '';
+                    }
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
+    },
+}
+</script>
